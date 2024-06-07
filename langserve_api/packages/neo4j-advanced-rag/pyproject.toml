@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "neo4j-advanced-rag"
+version = "0.1.0"
+description = "Balance precise embeddings and context retention with advanced strategies"
+authors = [
+    "Tomaz Bratanic <tomaz.bratanic@neo4j.com>",
+]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = ">=3.9.0,<3.13"
+langchain = "^0.1"
+tiktoken = "^0.5.1"
+openai = "<2"
+neo4j = "^5.14.0"
+langchain-text-splitters = ">=0.0.1,<0.1"
+langchain-openai = "^0.1.1"
+#unstructured = {extras = ["pdf"], version = "^0.14.4"}
+pypdf = "^4.2.0"
+
+[tool.poetry.group.dev.dependencies]
+langchain-cli = ">=0.0.21"
+
+[tool.langserve]
+export_module = "neo4j_advanced_rag"
+export_attrs = ["chain", "chain_with_memory", "ingest_documents"]
+
+[tool.templates-hub]
+use-case = "rag"
+author = "Neo4j"
+integrations = ["Neo4j", "OpenAI"]
+tags = ["vectordb", "parent", "summarization"]
+
+[build-system]
+requires = [
+    "poetry-core",
+]
+build-backend = "poetry.core.masonry.api"
