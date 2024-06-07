@@ -1,3 +1,4 @@
 /neo4j/
 /.env
 .idea
+/langserve_api/packages/neo4j-advanced-rag/poetry.lock
